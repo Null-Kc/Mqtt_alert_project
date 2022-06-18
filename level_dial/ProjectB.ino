@@ -72,9 +72,7 @@ void setup() {
   
   client.subscribe(topicProject); // Se inscreve no Topico para receber futuras mensagem de resposta
   client.publish(topicProject, "Null/ESP"); // Publica no topico defino A mesagem Null/ESP
-  client.subscribe(topicNivelAlert); // Se inscreve no Topico para pode enviar mensagem do nivel do sensor
-  client.subscribe(topicUmidade); // Se inscreve no Topico para pode enviar mensagem do nivel do Umidade
-  client.subscribe(topicTemperatura); // Se inscreve no Topico para pode enviar mensagem do nivel do Temperatura
+  client.subscribe(topicNivel); // Se inscreve no Topico para pode enviar mensagem do nivel do sensor
   
 }
 
@@ -103,7 +101,7 @@ void loop() {
   
   if (currentMillis - previousMillis >= intervalo){ //Verifica se o intervalo já foi atingido 
      previousMillis = currentMillis; // Define o tempo tempo anterior oomo o tempo atual
-     client.publish(topicNivelAlert, agua.c_str()); // publica no topico NivelAlert o valor lido pelo sensor de nivel de agua
+     client.publish(topicNivel, agua.c_str()); // publica no topico NivelAlert o valor lido pelo sensor de nivel de agua
   }
 }
 
