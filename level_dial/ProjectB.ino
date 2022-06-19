@@ -73,6 +73,9 @@ void setup() {
   client.subscribe(topicProject); // Se inscreve no Topico para receber futuras mensagem de resposta
   client.publish(topicProject, "Null/ESP"); // Publica no topico defino A mesagem Null/ESP
   client.subscribe(topicNivel); // Se inscreve no Topico para pode enviar mensagem do nivel do sensor
+  client.subscribe(NivelPorcentagem); // Se inscreve no Topico para pode enviar o valor em porcentagem do sensor
+  client.subscribe(topicUmidade); // Se inscreve no Topico para pode enviar mensagem da umidade 
+  client.subscribe(topicTemperatura); // Se inscreve no Topico para pode enviar mensagem da Temperatura 
   
 }
 
@@ -87,6 +90,10 @@ void callback(char *topic, byte *payload, unsigned int length) { // Caso tenha u
       Serial.print((char) payload[i]); // Mostra no monitor seril cada letra da mesagem
       char c = ((char) payload[i]); // Amarzena as letras na variavel c
       msg += c; // Armazena as letras para criar a mesagem
+  }
+
+  if(msg == "Receber Dados"){
+    Dados()
   }
      
   Serial.println(); // Pula uma linha
