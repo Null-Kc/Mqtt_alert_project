@@ -4,14 +4,14 @@
 #include "Secrets.h" // importa as variaveis de senha e login do broker MQTT e do WiFI
 #include "Mqtt.h" // importa os topicos usados pelo programa
 
-#define sensorvcc 4 //Define o pino de energia que sera usado pelo sensor de nivel de agua   
+#define sensorvcc 5 //Define o pino de energia que sera usado pelo sensor de nivel de agua   
 #define sensorsinal 17  //Define o pino de leitura do do sensor de nivel de agua    
 
-#define Led 16 //Define o pino do Led
+#define Led 4 //Define o pino do Led
 
-const int buzzer = 5; 
+const int buzzer = 0; 
 
-#define DHTPIN 0 //Pino digital D2 (GPIO5) conectado ao DHT11
+#define DHTPIN 2 //Pino digital D2 (GPIO5) conectado ao DHT11
 #define DHTTYPE DHT11 //Tipo do sensor DHT11
 
 DHT dht(DHTPIN, DHTTYPE); //Inicializando o objeto dht do tipo DHT passando como parâmetro o pino (DHTPIN) e o tipo do sensor (DHTTYPE)
