@@ -85,7 +85,7 @@ void callback(char *topic, byte *payload, unsigned int length) { // Caso tenha u
       char c = ((char) payload[i]); // Amarzena as letras na variavel c
       msg += c; // Armazena as letras para criar a mesagem
   }
-   
+  
   Serial.println(); // Pula uma linha
 }
 
@@ -94,7 +94,7 @@ void loop() {
   umidade = dht.readHumidity(); // le a umidade e armazena no sensor de umidade
    
   int level = readSensor(); // exuta a funcao de leitura do sensor e armazena o valor de val na variavel level
-  
+
   if (umidade >= 40 and level > 200) { // verifica se o as condicoes sao atendidas
    client.publish(topicNivelAlert, "Janela Aberta"); // publica no topico NivelAlert a mensagem Aviso
    digitalWrite(Led, HIGH); // Liga o Led

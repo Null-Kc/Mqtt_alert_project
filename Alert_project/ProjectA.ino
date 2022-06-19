@@ -94,7 +94,6 @@ void loop() {
   umidade = dht.readHumidity(); // le a umidade e armazena no sensor de umidade
    
   int level = readSensor(); // exuta a funcao de leitura do sensor e armazena o valor de val na variavel level
-  String agua = String(level); // tranforma a variavel level em string e armazena na variavel agua
   
   if (umidade >= 40 and level > 400) { // verifica se o as condicoes sao atendidas
    client.publish(topicNivelAlert, "Aviso"); // publica no topico NivelAlert a mensagem Aviso
