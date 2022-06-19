@@ -85,10 +85,6 @@ void callback(char *topic, byte *payload, unsigned int length) { // Caso tenha u
       char c = ((char) payload[i]); // Amarzena as letras na variavel c
       msg += c; // Armazena as letras para criar a mesagem
   }
-
-  if(topic == "Null/project" and msg == "Umidade/Temperatura"){ // Verifica se mensagem veio do tipico Null/project e se a mensagem foi Umidade/Temperatura
-    Temperatura_umiade(); // executa a funcao que envia a umidade e a temperatura
-  }
    
   Serial.println(); // Pula uma linha
 }
@@ -108,17 +104,6 @@ void loop() {
   digitalWrite(Led, LOW); // Desliga o led
 
   noTone(buzzer); // Desliga o Buzzer
-}
-
-void Temperatura_umiade(){ // Funcao que envia o dados de temperatura e umidade
-   temperatura = dht.readTemperature();  //Realiza a leitura da temperatura
-   umidade = dht.readHumidity(); //Realiza a leitura da umidade
-
-   String tempe = String(temperatura); // Transfora o valor da temperatura em uma string
-   String umi = String(umidade); // Transfora o valor da Umidade em uma string
-
-   client.publish(topicUmidade, umi.c_str()); // Publica o valor da Umidade no topico de Umidade
-   client.publish(topicTemperatura, tempe.c_str()); // Publica o valor da temperatura no topico de temperatura
 }
 
 int readSensor() {  // Funcao que le os dados do sensor 
