@@ -92,8 +92,8 @@ void callback(char *topic, byte *payload, unsigned int length) { // Caso tenha u
       msg += c; // Armazena as letras para criar a mesagem
   }
 
-  if(msg == "Receber Dados"){
-    Dados()
+  if(msg == "Receber/Dados"){
+    Dados();
   }
      
   Serial.println(); // Pula uma linha
