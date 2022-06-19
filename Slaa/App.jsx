@@ -1,19 +1,18 @@
-import * as React from 'react';
-import { StatusBar  } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator, TransitionPresets } from '@react-navigation/stack';
+import * as React from 'react'; // Importa o react 
+import { NavigationContainer } from '@react-navigation/native'; // IMporta a biblioteca react native navigation
+import { createStackNavigator, TransitionPresets } from '@react-navigation/stack'; // importa da biblioteca react native navigation o navigation stack
 
-import Menu from './src/Screens/Menu';
-import Levelviewer from './src/Screens/Levelviewer';
-import Thermometer from './src/Screens/Thermometer';
+import Menu from './src/Screens/Menu'; // importa a tela de MENU
+import Levelviewer from './src/Screens/Levelviewer'; // importa a tela de Levelviewer
+import Thermometer from './src/Screens/Thermometer'; // importa a tela de Thermometer
 
 const TransitionScreenOptions = {
-  ...TransitionPresets.SlideFromRightIOS, // This is where the transition happens
+  ...TransitionPresets.SlideFromRightIOS, // Define como vai ser a transicao entre as telas
 };
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator(); // Cria a contante stack
 
-function MyStack() {
+function MyStack() { // cria as rotaS do aplicativo
   return (
     <Stack.Navigator screenOptions={TransitionScreenOptions} initialRouteName="Menu">  
       <Stack.Screen name="Menu" component={Menu}  options={{
@@ -50,7 +49,7 @@ function MyStack() {
   );
 }
 
-export default function App() {
+export default function App() { // expota essa rodas como uma funcao
   return (
     <NavigationContainer>
       <MyStack />

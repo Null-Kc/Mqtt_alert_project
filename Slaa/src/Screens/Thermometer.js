@@ -17,7 +17,7 @@ export default class Thermometer extends Component { // Cria o Componente App
 
   componentDidMount() { // Cria a função que mostrara no Console a mensagem que foi enviad
     client.onMessageArrived=(message)=>this.onMessageArrived(message); // Mostra a Mensagem enviada
-    client.publish("Null/project","Dados"); // Publica no topico project
+    client.publish("Null/project","Receber/Dados"); // Publica no topico project
   }
   
   onMessageArrived  = (message) =>  // Criar a função que recebera as mensagens do Mqtt

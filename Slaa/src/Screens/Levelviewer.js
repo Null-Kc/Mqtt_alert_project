@@ -16,7 +16,7 @@ export default class LevelAlert extends Component { // Cria o Componente App
 
   componentDidMount() { // Cria a função que mostrara no Console a mensagem que foi enviad
     client.onMessageArrived=(message)=>this.onMessageArrived(message); // Mostra a Mensagem enviada
-    client.publish("Null/project","Receber Dados"); // Publica no topico project
+    client.publish("Null/project","Receber/Dados"); // Publica no topico project
   }
   
   onMessageArrived  = (message) =>  // Criar a função que recebera as mensagens do Mqtt
@@ -46,7 +46,7 @@ export default class LevelAlert extends Component { // Cria o Componente App
       }
     ]
 
-    const colors = ['#a10010', '#666666'] // cria a constante com as cores
+    const colors = ['#0008ff', '#666666'] // cria a constante com as cores
     const keys = ['Nivelum', 'Nivelzero'] // cria a variavel com as keys
 
     return ( // Retorna ao Usuario todos os itens do App
