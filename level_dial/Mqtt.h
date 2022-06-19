@@ -1,6 +1,7 @@
 const char *mqtt_broker = "mqtt.internetecoisas.com.br"; // Cria a variavel mqtt_broker onde fica armazenado o URL do Broker
 const char *topicProject = "Null/project"; // Cria a variavel topicProject usada para sabermos se a Conexão foi bem sucedida
 const char *topicNivelAlert = "Null/NivelAlert"; // Cria a variavel topicNivelAlert onde sera publicado a Mensagem de aviso
+const char *NivelPorcentagem = "Null/NivelPorcentagem"; // Cria a variavel NivelPorcentagem onde sera usada para publicar as porcetagem de nivel do sensor
 const char *topicNivel = "Null/Nivel"; // Cria a variavel topicNivel onde sera publicado os valores lidos pelo sensor de nivel de agua
 const char *topicUmidade = "Null/Umidade"; // Cria a variavel topicUmidade onde sera publicado os valores lidos pelo sensor de Umidade
 const char *topicTemperatura = "Null/Temperatura"; // Cria a variavel topicTemperatura  onde sera publicado os valores lidos pelo sensor de Temperatura

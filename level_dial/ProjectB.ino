@@ -94,15 +94,32 @@ void callback(char *topic, byte *payload, unsigned int length) { // Caso tenha u
 
 void loop() {
   client.loop(); //Inicia o loop de conexão
-  int level = readSensor(); // exuta a funcao de leitura do sensor e armazena o valor de val na variavel level
-  String agua = String(level); // tranforma a variavel level em string e armazena na variavel agua
-
+ 
   unsigned long currentMillis = millis(); // Cria a variavel do tempo de execucao no momento
   
   if (currentMillis - previousMillis >= intervalo){ //Verifica se o intervalo já foi atingido 
      previousMillis = currentMillis; // Define o tempo tempo anterior oomo o tempo atual
-     client.publish(topicNivel, agua.c_str()); // publica no topico NivelAlert o valor lido pelo sensor de nivel de agua
+     Dados();
   }
+}
+
+void Dados(){
+    int level = readSensor(); // exuta a funcao de leitura do sensor e armazena o valor de val na variavel level
+    int porcetagem = map(valorSensor, 0, 650, 0, 100);//pega o valor lido que vai de 0 a 650 e converte em porcentagem
+    String agua = String(level); // tranforma a variavel level em string e armazena na variavel agua
+    String porcetagemdeagua = String(porcetagem); // tranforma a variavel level em string e armazena na variavel agua
+     
+    client.publish(topicNivel, agua.c_str()); // publica no topico NivelAlert o valor lido pelo sensor de nivel de agua
+    client.publish(NivelPorcentagem, porcetagemdeagua.c_str()); // publica no topico NivelAlert o valor lido pelo sensor de nivel de agua
+
+    temperatura = dht.readTemperature();  //Realiza a leitura da temperatura
+    umidade = dht.readHumidity(); //Realiza a leitura da umidade
+
+    String tempe = String(temperatura); // Transfora o valor da temperatura em uma string
+    String umi = String(umidade); // Transfora o valor da Umidade em uma string
+
+    client.publish(topicUmidade, umi.c_str()); // Publica o valor da Umidade no topico de Umidade
+    client.publish(topicTemperatura, tempe.c_str()); // Publica o valor da temperatura no topico de temperatura
 }
 
 int readSensor() {  // Funcao que le os dados do sensor 
