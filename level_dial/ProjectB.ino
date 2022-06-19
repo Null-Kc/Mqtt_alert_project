@@ -5,11 +5,11 @@
 #include "Mqtt.h" // importa os topicos usados pelo programa
 
 #define sensorvcc 5 //Define o pino de energia que sera usado pelo sensor de nivel de agua   
-#define sensorsinal 17  //Define o pino de leitura do do sensor de nivel de agua    
+#define sensorsinal 17  //Define o pino de leitura do sensor de nivel de agua    
 
-#define Led 4 //Define o pino do Led
+#define Led 4 // Define o pino do Led
 
-const int buzzer = 0; 
+const int buzzer = 0; // Define o pino do buzzer
 
 #define DHTPIN 2 //Pino digital D2 (GPIO5) conectado ao DHT11
 #define DHTTYPE DHT11 //Tipo do sensor DHT11
@@ -92,8 +92,8 @@ void callback(char *topic, byte *payload, unsigned int length) { // Caso tenha u
       msg += c; // Armazena as letras para criar a mesagem
   }
 
-  if(msg == "Receber/Dados"){
-    Dados();
+  if(msg == "Receber/Dados"){ // Verifica se a mensagem recebida e Receber/Dados
+    Dados(); // Ativa a funcao de enviar dados
   }
      
   Serial.println(); // Pula uma linha
