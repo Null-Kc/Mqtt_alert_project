@@ -105,7 +105,7 @@ void loop() {
 
 void Dados(){
     int level = readSensor(); // exuta a funcao de leitura do sensor e armazena o valor de val na variavel level
-    int porcetagem = map(valorSensor, 0, 650, 0, 100);//pega o valor lido que vai de 0 a 650 e converte em porcentagem
+    int porcetagem = map(level, 0, 650, 0, 100);//pega o valor lido que vai de 0 a 650 e converte em porcentagem
     String agua = String(level); // tranforma a variavel level em string e armazena na variavel agua
     String porcetagemdeagua = String(porcetagem); // tranforma a variavel level em string e armazena na variavel agua
      
